@@ -1,0 +1,154 @@
+import React from 'react';
+import { Head, Link, router } from '@inertiajs/react';
+import { PublicLayout } from '@/Layouts/PublicLayout';
+import { Product, Category } from '@/types/product';
+import { HighlightBadge } from '@/Components/HighlightBadge';
+import { Shield, ChevronRight, Layers, Grid } from 'lucide-react';
+
+interface ProductsIndexProps {
+    products: Product[];
+    categories: Category[];
+    currentCategory?: string | null;
+}
+
+export default function ProductsIndex({ products, categories, currentCategory }: ProductsIndexProps) {
+    const handleCategoryFilter = (slug: string | null) => {
+        router.get(
+            route('products.index'),
+            slug ? { category: slug } : {},
+            { preserveState: true, preserveScroll: true }
+        );
+    };
+
+    return (
+        <PublicLayout>
+            <Head title="Products Catalog - Perisai Corp" />
+
+            {/* Header Title */}
+            <div className="mb-8">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-blue-400 uppercase mb-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></span>
+                    MISSION-READY SOLUTIONS
+                </div>
+                <h1 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white uppercase">
+                    OUR <span className="text-blue-500">PRODUCTS</span>
+                </h1>
+                <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
+                    Katalog perangkat optik malam/termal taktis dan rancang bangun karoseri lapis baja pertahanan Perisai Corp.
+                </p>
+            </div>
+
+            {/* Category Filter Bar */}
+            <div className="mb-10 overflow-x-auto pb-2">
+                <div className="flex items-center gap-2 min-w-max">
+                    <button
+                        onClick={() => handleCategoryFilter(null)}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 ${
+                            !currentCategory
+                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
+                                : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 border border-slate-800'
+                        }`}
+                    >
+                        <Grid size={14} />
+                        <span>Semua Kategori</span>
+                    </button>
+
+                    {categories.map((cat) => (
+                        <button
+                            key={cat.id}
+                            onClick={() => handleCategoryFilter(cat.slug)}
+                            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 ${
+                                currentCategory === cat.slug
+                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
+                                    : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 border border-slate-800'
+                            }`}
+                        >
+                            <Layers size={14} />
+                            <span>{cat.name}</span>
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            {/* Products Grid Layout (3 Columns) */}
+            {products.length === 0 ? (
+                <div className="text-center py-20 bg-slate-900/40 rounded-2xl border border-slate-800 space-y-3">
+                    <Shield size={48} className="mx-auto text-slate-600" />
+                    <p className="text-slate-400 text-sm">Tidak ada produk ditemukan dalam kategori ini.</p>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {products.map((product) => (
+                        <div
+                            key={product.id}
+                            className="group bg-slate-900/70 rounded-2xl border border-blue-900/30 overflow-hidden flex flex-col backdrop-blur-md shadow-xl hover:border-blue-600/50 transition-all duration-300"
+                        >
+                            {/* Image Header */}
+                            <div className="relative h-56 bg-slate-950 flex items-center justify-center p-4 border-b border-slate-800/80">
+                                {product.image_url ? (
+                                    <img
+                                        src={product.image_url}
+                                        alt={product.name}
+                                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                ) : (
+                                    <div className="text-slate-700 flex flex-col items-center gap-2">
+                                        <Shield size={40} />
+                                        <span className="text-[10px] font-mono">NO IMAGE</span>
+                                    </div>
+                                )}
+
+                                {/* Category Tag */}
+                                <div className="absolute top-3 left-3 bg-slate-950/90 text-blue-400 text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg border border-blue-900/60 uppercase">
+                                    {product.category_relation?.name || product.category || 'DEFENSE'}
+                                </div>
+                            </div>
+
+                            {/* Body Content */}
+                            <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
+                                <div className="space-y-3">
+                                    <div>
+                                        <h3 className="text-xl font-black font-display text-white group-hover:text-blue-400 transition-colors uppercase tracking-tight">
+                                            {product.name}
+                                        </h3>
+                                        {product.category && (
+                                            <p className="text-xs font-bold text-blue-400 tracking-wider uppercase mt-0.5">
+                                                {product.category}
+                                            </p>
+                                        )}
+                                    </div>
+
+                                    {product.description && (
+                                        <p className="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                                            {product.description}
+                                        </p>
+                                    )}
+
+                                    {/* Highlights Row */}
+                                    {product.highlights && product.highlights.length > 0 && (
+                                        <div className="pt-2 flex flex-wrap gap-2">
+                                            {product.highlights.slice(0, 3).map((h, i) => (
+                                                <HighlightBadge key={i} item={h} size="sm" />
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Action Button */}
+                                <div className="pt-2">
+                                    <Link
+                                        href={route('products.show', product.slug)}
+                                        className="w-full py-3 px-4 bg-slate-800 hover:bg-blue-600 text-slate-100 hover:text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-md group/btn"
+                                    >
+                                        <span>Lihat Detail Spesifikasi</span>
+                                        <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </PublicLayout>
+    );
+}
