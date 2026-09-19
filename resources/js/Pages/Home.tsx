@@ -12,25 +12,22 @@ interface HomeProps {
 export default function Home({ featuredProducts, categories }: HomeProps) {
     return (
         <PublicLayout>
-            <Head title="Perisai Corp - Defense & Tactical Karoseri Manufacturing" />
+            <Head title="PerisaiCorp" />
 
             {/* 1. Hero Section */}
-            <section className="relative py-12 md:py-20 mb-16 overflow-hidden">
+            <section className="relative py-12 md:py-20 mb-16">
                 <div className="relative z-10 max-w-4xl">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/60 text-blue-400 text-xs font-mono font-bold tracking-widest uppercase mb-6 shadow-lg shadow-blue-950/50">
-                        <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
-                        INDUSTRY LEADERS IN DEFENSE & KAROSERI
-                    </div>
-
                     <h1 className="text-4xl sm:text-6xl md:text-7xl font-black font-display tracking-tight text-white uppercase leading-none mb-6">
                         PERISAI CORP <br />
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-300">
-                            TACTICAL KAROSERI & OPTICS
+                            TECHNOLOGY FOR A SAFER TOMORROW
                         </span>
                     </h1>
 
                     <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-normal">
-                        Spesialis rancang bangun <strong className="text-white">Karoseri Kendaraan Taktis Lapis Baja</strong>, kendaraan komando lapangan, serta penyedia perangkat <strong className="text-white">Optik Penglihatan Malam & Kamera Termal</strong> terdepan untuk mendukung kesiapan misi taktis pertahanan nasional.
+                        A Military Defense Group Holding Industry. Providing strategic direction, corporate
+                        governance, investment oversight, and synergy across all business units within the
+                        national defense industry
                     </p>
 
                     <div className="flex flex-wrap items-center gap-4">
@@ -38,101 +35,15 @@ export default function Home({ featuredProducts, categories }: HomeProps) {
                             href={route('products.index')}
                             className="inline-flex items-center gap-3 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm rounded-xl shadow-xl shadow-blue-600/30 transition-all hover:scale-105"
                         >
-                            <span>Jelajahi Katalog Produk</span>
+                            <span>Explore Products Catalog</span>
                             <ArrowRight size={18} />
                         </Link>
-                        <a
-                            href="#about"
+                        <Link
+                            href={route('about')}
                             className="inline-flex items-center gap-2 px-6 py-3.5 bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-semibold text-sm rounded-xl border border-slate-700 transition-all"
                         >
-                            <span>Tentang Perusahaan</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* 2. Key Metrics Bar */}
-            <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-                {[
-                    { number: '100+', label: 'Kendaraan Taktis & Karoseri' },
-                    { number: 'STANAG 2', label: 'Proteksi Balistik Militer' },
-                    { number: 'IP67', label: 'Standar Kedap Air Optik' },
-                    { number: 'ISO 9001', label: 'Sertifikasi Manufaktur' },
-                ].map((stat, idx) => (
-                    <div key={idx} className="bg-slate-900/60 p-5 rounded-2xl border border-blue-900/30 backdrop-blur-sm text-center">
-                        <div className="text-2xl sm:text-3xl font-black font-display text-blue-400 mb-1">{stat.number}</div>
-                        <div className="text-xs font-semibold text-slate-300 uppercase tracking-wider">{stat.label}</div>
-                    </div>
-                ))}
-            </section>
-
-            {/* 3. Company Profile & Core Pillars */}
-            <section id="about" className="mb-20 space-y-12">
-                <div className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-xs font-bold font-mono text-blue-400 tracking-widest uppercase mb-2">
-                        PILAR UTAMA BISNIS
-                    </h2>
-                    <h3 className="text-3xl sm:text-4xl font-black font-display text-white uppercase tracking-tight">
-                        KEUNGGULAN MANUFAKTUR PERISAI CORP
-                    </h3>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Pillar 1: Karoseri */}
-                    <div className="bg-slate-900/60 rounded-2xl border border-slate-800 p-6 sm:p-8 backdrop-blur-sm hover:border-blue-600/50 transition-all group">
-                        <div className="w-12 h-12 rounded-xl bg-blue-950 border border-blue-800/80 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-lg">
-                            <Truck size={24} />
-                        </div>
-                        <h4 className="text-xl font-bold font-display text-white mb-3">Karoseri Taktis & Lapis Baja</h4>
-                        <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                            Konstruksi karoseri khusus untuk Armored Personnel Carrier (APC 4x4), Rapid Response Vehicle, hingga Mobile Command Center berpenggerak 4WD untuk medan berat.
-                        </p>
-                        <ul className="space-y-2 text-xs text-slate-300">
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-blue-400" /> Kapsul Proteksi Balistik Crew
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-blue-400" /> V-Shape Hull Anti-Ranjau
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Pillar 2: Optics */}
-                    <div className="bg-slate-900/60 rounded-2xl border border-slate-800 p-6 sm:p-8 backdrop-blur-sm hover:border-blue-600/50 transition-all group">
-                        <div className="w-12 h-12 rounded-xl bg-blue-950 border border-blue-800/80 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-lg">
-                            <Eye size={24} />
-                        </div>
-                        <h4 className="text-xl font-bold font-display text-white mb-3">Optik Malam & Termal</h4>
-                        <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                            Perangkat Binocular Night Vision Goggles (ELF-3IH), Clip-on Thermal Imager (ELF-C), dan Monokular Termal beresolusi 640x512 berbahan komposit PEEK ringan.
-                        </p>
-                        <ul className="space-y-2 text-xs text-slate-300">
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-blue-400" /> Sensor Termal 12µm High-Sensitivity
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-blue-400" /> Ketahanan Benturan hingga 1,000G
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Pillar 3: Defense Systems */}
-                    <div className="bg-slate-900/60 rounded-2xl border border-slate-800 p-6 sm:p-8 backdrop-blur-sm hover:border-blue-600/50 transition-all group">
-                        <div className="w-12 h-12 rounded-xl bg-blue-950 border border-blue-800/80 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-lg">
-                            <Cpu size={24} />
-                        </div>
-                        <h4 className="text-xl font-bold font-display text-white mb-3">Sistem & Integrasi Taktis</h4>
-                        <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                            Integrasi sistem komunikasi satelit (VSAT), transmisi video nirkabel nirkabel berenkripsi, serta konsol perintah bergerak untuk efektivitas komunikasi pertempuran.
-                        </p>
-                        <ul className="space-y-2 text-xs text-slate-300">
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-blue-400" /> App Wireless Image Transmission
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-blue-400" /> Multi-Source Hybrid Power Unit
-                            </li>
-                        </ul>
+                            <span>Learn About Us</span>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -142,17 +53,17 @@ export default function Home({ featuredProducts, categories }: HomeProps) {
                 <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
                     <div>
                         <h2 className="text-xs font-bold font-mono text-blue-400 tracking-widest uppercase mb-1">
-                            KATALOG UNGGULAN
+                            FEATURED CATALOG
                         </h2>
                         <h3 className="text-3xl font-black font-display text-white uppercase tracking-tight">
-                            PRODUK PERISAI CORP
+                            OUR PRODUCTS
                         </h3>
                     </div>
                     <Link
                         href={route('products.index')}
                         className="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors uppercase tracking-wider"
                     >
-                        <span>Lihat Semua Produk</span>
+                        <span>View All Products</span>
                         <ChevronRight size={16} />
                     </Link>
                 </div>
@@ -184,13 +95,55 @@ export default function Home({ featuredProducts, categories }: HomeProps) {
                                     href={route('products.show', product.slug)}
                                     className="w-full py-2 bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white font-bold text-xs rounded-xl text-center transition-all block"
                                 >
-                                    Lihat Detail Produk
+                                    View Product Details
                                 </Link>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
-        </PublicLayout>
+            {/* 5. Institutional Alignment Section */}
+            <section className="mb-20 py-12 px-6 bg-slate-900/40 rounded-3xl border border-slate-800/80 backdrop-blur-md">
+                <div className="text-center max-w-3xl mx-auto mb-12">
+                    <h2 className="text-xs font-bold font-mono text-slate-500 tracking-widest uppercase mb-2">
+                        INSTITUTIONAL ALIGNMENT
+                        </h2>
+                        <h3 className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight">
+                            Trusted by National Defense Institutions
+                        </h3>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+                        {[
+                            { name: 'KEMHAN RI', image: '/images/KEMHAN.png' },
+                            { name: 'TNI AD', image: '/images/TNIAD.png' },
+                            { name: 'TNI AU', image: '/images/TNIAU.png' },
+                            { name: 'TNI AL', image: '/images/TNIAL.png' },
+                        ].map((inst, idx) => (
+                            <div key={idx} className="flex flex-col items-center gap-4 group">
+                                <div className="w-24 h-24 sm:w-60 sm:h-60 rounded-2xl bg-slate-950/80 border border-slate-800/80 p-4 flex items-center justify-center group-hover:border-blue-500/50 group-hover:bg-slate-900 transition-all shadow-lg">
+                                    <img
+                                        src={inst.image}
+                                        alt={inst.name}
+                                        className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 contrast-125 transition-all opacity-80 group-hover:opacity-100"
+                                        onError={(e) => {
+                                            e.currentTarget.style.display = 'none';
+                                            if (e.currentTarget.nextElementSibling) {
+                                                (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                                            }
+                                        }}
+                                    />
+                                    <div className="hidden flex-col items-center justify-center text-slate-600">
+                                        <Shield size={32} />
+                                    </div>
+                                </div>
+                                <span className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider group-hover:text-blue-400 transition-colors">
+                                    {inst.name}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </PublicLayout>
     );
 }

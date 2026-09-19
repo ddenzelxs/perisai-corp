@@ -34,7 +34,7 @@ export default function ProductsIndex({ products, categories, currentCategory }:
                     OUR <span className="text-blue-500">PRODUCTS</span>
                 </h1>
                 <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
-                    Katalog perangkat optik malam/termal taktis dan rancang bangun karoseri lapis baja pertahanan Perisai Corp.
+                    Comprehensive catalog of tactical night vision, thermal optics, and military-grade defense armored bodywork engineering.
                 </p>
             </div>
 
@@ -50,7 +50,7 @@ export default function ProductsIndex({ products, categories, currentCategory }:
                         }`}
                     >
                         <Grid size={14} />
-                        <span>Semua Kategori</span>
+                        <span>All Categories</span>
                     </button>
 
                     {categories.map((cat) => (
@@ -74,7 +74,7 @@ export default function ProductsIndex({ products, categories, currentCategory }:
             {products.length === 0 ? (
                 <div className="text-center py-20 bg-slate-900/40 rounded-2xl border border-slate-800 space-y-3">
                     <Shield size={48} className="mx-auto text-slate-600" />
-                    <p className="text-slate-400 text-sm">Tidak ada produk ditemukan dalam kategori ini.</p>
+                    <p className="text-slate-400 text-sm">No products found in this category.</p>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -140,7 +140,7 @@ export default function ProductsIndex({ products, categories, currentCategory }:
                                         href={route('products.show', product.slug)}
                                         className="w-full py-3 px-4 bg-slate-800 hover:bg-blue-600 text-slate-100 hover:text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-md group/btn"
                                     >
-                                        <span>Lihat Detail Spesifikasi</span>
+                                        <span>View Technical Specifications</span>
                                         <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>

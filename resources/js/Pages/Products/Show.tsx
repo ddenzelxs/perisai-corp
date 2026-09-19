@@ -22,7 +22,7 @@ export default function ProductShow({ product }: ProductShowProps) {
                     className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-blue-400 transition-colors uppercase tracking-wider"
                 >
                     <ArrowLeft size={16} />
-                    <span>Kembali ke Katalog Produk</span>
+                    <span>Back to Products Catalog</span>
                 </Link>
 
                 <div className="text-[11px] font-mono text-slate-500 uppercase">
@@ -60,7 +60,7 @@ export default function ProductShow({ product }: ProductShowProps) {
                         <div>
                             <div className="text-xs font-bold font-mono text-blue-400 tracking-widest uppercase mb-1 flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                                PERISAI CORP DEFENSE & KAROSERI
+                                PERISAI CORP DEFENSE & BODYWORK
                             </div>
                             <h1 className="text-3xl sm:text-5xl font-black font-display text-white tracking-tight uppercase">
                                 {product.name}
@@ -82,7 +82,7 @@ export default function ProductShow({ product }: ProductShowProps) {
                         {product.highlights && product.highlights.length > 0 && (
                             <div className="pt-2">
                                 <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
-                                    Fitur Utama & Keunggulan
+                                    Key Features & Highlights
                                 </h3>
                                 <div className="flex flex-wrap items-center justify-around gap-4 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
                                     {product.highlights.map((highlight, idx) => (
@@ -100,15 +100,15 @@ export default function ProductShow({ product }: ProductShowProps) {
                         {/* Contact & Inquiry Banner */}
                         <div className="pt-4 bg-slate-950/80 p-5 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div>
-                                <h4 className="text-xs font-bold text-white uppercase tracking-wider">Butuh Konsultasi Spesifikasi Karoseri / Optik?</h4>
-                                <p className="text-[11px] text-slate-400">Tim enginering kami siap melayani kustomisasi spesifikasi taktis.</p>
+                                <h4 className="text-xs font-bold text-white uppercase tracking-wider">Need Custom Tactical / Bodywork Specifications?</h4>
+                                <p className="text-[11px] text-slate-400">Our engineering team is ready to support your mission-critical customization requirements.</p>
                             </div>
                             <a
                                 href="mailto:info@perisaicorp.com"
                                 className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-xl transition-all shadow-md shrink-0"
                             >
                                 <Mail size={16} />
-                                <span>Hubungi Tim Sales</span>
+                                <span>Contact Sales Team</span>
                             </a>
                         </div>
                     </div>

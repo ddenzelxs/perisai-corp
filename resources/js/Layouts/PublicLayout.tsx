@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, usePage } from '@inertiajs/react';
-import { Shield } from 'lucide-react';
 
 interface PublicLayoutProps {
     children: React.ReactNode;
@@ -22,19 +21,11 @@ export const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <Link href="/" className="flex items-center gap-3 group">
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-600 to-cyan-400 p-0.5 shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all">
-                                <div className="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center text-blue-400">
-                                    <Shield size={22} />
-                                </div>
-                            </div>
-                            <div>
-                                <span className="font-display font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-blue-200">
-                                    PERISAI CORP
-                                </span>
-                                <div className="text-[10px] font-bold text-blue-400 tracking-widest uppercase flex items-center gap-1.5">
-                                    <span>Technology for a Saver Tomorrow</span>
-                                </div>
-                            </div>
+                            <img
+                                src="/images/logo.png"
+                                alt="PERISAI CORP Logo"
+                                className="h-25 w-auto object-contain"
+                            />
                         </Link>
 
                         {/* Public Navigation Items */}
@@ -42,29 +33,32 @@ export const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
                             <Link
                                 href={route('home')}
                                 className={`transition-colors py-2 border-b-2 uppercase ${url === '/'
-                                        ? 'text-white border-blue-500 font-bold'
-                                        : 'text-slate-400 hover:text-blue-400 border-transparent'
+                                    ? 'text-white border-blue-500 font-bold'
+                                    : 'text-slate-400 hover:text-blue-400 border-transparent'
                                     }`}
                             >
-                                Company Profile
+                                HOME
+                            </Link>
+
+                            <Link
+                                href={route('about')}
+                                className={`transition-colors py-2 border-b-2 uppercase ${url.startsWith('/about')
+                                    ? 'text-white border-blue-500 font-bold'
+                                    : 'text-slate-400 hover:text-blue-400 border-transparent'
+                                    }`}
+                            >
+                                ABOUT US
                             </Link>
 
                             <Link
                                 href={route('products.index')}
                                 className={`transition-colors py-2 border-b-2 uppercase ${url.startsWith('/products')
-                                        ? 'text-white border-blue-500 font-bold'
-                                        : 'text-slate-400 hover:text-blue-400 border-transparent'
+                                    ? 'text-white border-blue-500 font-bold'
+                                    : 'text-slate-400 hover:text-blue-400 border-transparent'
                                     }`}
                             >
-                                Products Catalog
+                                PRODUCTS CATALOG
                             </Link>
-
-                            <a
-                                href="/#about"
-                                className="text-slate-400 hover:text-blue-400 transition-colors py-2 border-b-2 border-transparent uppercase hidden md:inline-block"
-                            >
-                                Karoseri & Tech
-                            </a>
                         </nav>
                     </div>
                 </div>
@@ -83,10 +77,10 @@ export const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
                             <div className="flex items-center gap-3">
                                 <span className="font-display font-extrabold text-white text-base">PERISAI CORP</span>
                                 <span className="text-slate-700">|</span>
-                                <span className="text-blue-400 font-semibold tracking-wider">DEFENSE & KAROSERI MANUFACTURING</span>
+                                <span className="text-blue-400 font-semibold tracking-wider">INTEGRATED DEFENSE & TECHNOLOGY SOLUTIONS</span>
                             </div>
                             <p className="text-slate-500 text-xs mt-1 max-w-lg">
-                                Manufaktur karoseri taktis khusus pertahanan, kendaraan lapis baja, serta penyedia optik termal & night vision standar industri militer.
+                                Tactical bodywork manufacturing, armored defense vehicles, night vision & thermal optics, and integrated military-grade defense technologies.
                             </p>
                         </div>
                     </div>
@@ -96,7 +90,7 @@ export const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
                             © {new Date().getFullYear()} PT Perisai Corp Indonesia. All rights reserved.
                         </div>
                         <div className="font-mono tracking-widest text-slate-600">
-                            ISO 9001:2015 CERTIFIED DEFENSE & KAROSERI
+                            ISO 9001:2015 CERTIFIED DEFENSE & BODYWORK MANUFACTURING
                         </div>
                     </div>
                 </div>

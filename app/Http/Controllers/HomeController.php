@@ -24,4 +24,9 @@ class HomeController extends Controller
             'categories' => $categories,
         ]);
     }
+
+    public function about(): Response
+    {
+        return Inertia::render('About');
+    }
 }
