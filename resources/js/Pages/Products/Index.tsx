@@ -84,12 +84,12 @@ export default function ProductsIndex({ products, categories, currentCategory }:
                             className="group bg-slate-900/70 rounded-2xl border border-blue-900/30 overflow-hidden flex flex-col backdrop-blur-md shadow-xl hover:border-blue-600/50 transition-all duration-300"
                         >
                             {/* Image Header */}
-                            <div className="relative h-56 bg-slate-950 flex items-center justify-center p-4 border-b border-slate-800/80">
+                            <div className="relative h-56 bg-slate-950 flex items-center justify-centerborder-b border-slate-800/80">
                                 {product.image_url ? (
                                     <img
                                         src={product.image_url}
                                         alt={product.name}
-                                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                        className="w-full h-full object-contain scale-105 group-hover:scale-110 transition-transform duration-500"
                                     />
                                 ) : (
                                     <div className="text-slate-700 flex flex-col items-center gap-2">

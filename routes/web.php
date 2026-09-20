@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -34,5 +35,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
         // Products CRUD
         Route::resource('products', AdminProductController::class)->except(['show']);
+
+        // Categories CRUD
+        Route::resource('categories', AdminCategoryController::class)->except(['show']);
     });
 });

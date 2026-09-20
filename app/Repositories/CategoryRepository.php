@@ -14,6 +14,21 @@ class CategoryRepository implements CategoryRepositoryInterface
         return Category::withCount('products')->orderBy('name', 'asc')->get();
     }
 
+    public function paginate(int $perPage = 10, ?string $search = null): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    {
+        $query = Category::withCount('products');
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('slug', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
+        return $query->orderBy('name', 'asc')->paginate($perPage);
+    }
+
     public function findById(int $id): ?Category
     {
         return Category::find($id);

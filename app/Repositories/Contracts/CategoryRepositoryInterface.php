@@ -9,6 +9,8 @@ interface CategoryRepositoryInterface
 {
     public function getAll(): Collection;
 
+    public function paginate(int $perPage = 10, ?string $search = null): \Illuminate\Contracts\Pagination\LengthAwarePaginator;
+
     public function findById(int $id): ?Category;
 
     public function findBySlug(string $slug): ?Category;

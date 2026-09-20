@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, usePage, router } from '@inertiajs/react';
-import { Package, LogOut, Shield, User as UserIcon, ExternalLink } from 'lucide-react';
+import { Package, LogOut, Shield, User as UserIcon, ExternalLink, Layers } from 'lucide-react';
 import { PageProps } from '@/types/product';
 
 interface AdminLayoutProps {
@@ -48,6 +48,18 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => 
                     >
                         <Package size={18} />
                         <span>Kelola Produk</span>
+                    </Link>
+
+                    <Link
+                        href={route('admin.categories.index')}
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+                            route().current('admin.categories.*')
+                                ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
+                                : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/60'
+                        }`}
+                    >
+                        <Layers size={18} />
+                        <span>Kelola Kategori</span>
                     </Link>
 
                     <div className="pt-6 text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-2">

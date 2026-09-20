@@ -97,20 +97,6 @@ export default function ProductShow({ product }: ProductShowProps) {
                             <SpecTable specifications={product.specifications} />
                         </div>
 
-                        {/* Contact & Inquiry Banner */}
-                        <div className="pt-4 bg-slate-950/80 p-5 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div>
-                                <h4 className="text-xs font-bold text-white uppercase tracking-wider">Need Custom Tactical / Bodywork Specifications?</h4>
-                                <p className="text-[11px] text-slate-400">Our engineering team is ready to support your mission-critical customization requirements.</p>
-                            </div>
-                            <a
-                                href="mailto:info@perisaicorp.com"
-                                className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-xl transition-all shadow-md shrink-0"
-                            >
-                                <Mail size={16} />
-                                <span>Contact Sales Team</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
