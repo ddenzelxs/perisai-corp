@@ -73,7 +73,7 @@ export default function Home({ featuredProducts, categories }: HomeProps) {
                         <div key={product.id} className="bg-slate-900/70 rounded-2xl border border-slate-800 overflow-hidden flex flex-col hover:border-blue-700/50 transition-all group shadow-xl">
                             <div className="relative h-48 bg-slate-950 flex items-center justify-center p-4">
                                 {product.image_url ? (
-                                    <img src={product.image_url} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform" />
+                                    <img src={product.image_url} alt={product.name} className="w-full h-full object-contain scale-105 group-hover:scale-110 transition-transform" />
                                 ) : (
                                     <Shield size={36} className="text-slate-700" />
                                 )}
