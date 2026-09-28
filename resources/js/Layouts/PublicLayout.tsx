@@ -51,6 +51,26 @@ export const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
                             </Link>
 
                             <Link
+                                href={route('what-we-do')}
+                                className={`transition-colors py-2 border-b-2 uppercase ${url.startsWith('/what-we-do')
+                                    ? 'text-white border-blue-500 font-bold'
+                                    : 'text-slate-400 hover:text-blue-400 border-transparent'
+                                    }`}
+                            >
+                                WHAT WE DO
+                            </Link>
+
+                            <Link
+                                href={route('facilities')}
+                                className={`transition-colors py-2 border-b-2 uppercase ${url.startsWith('/facilities')
+                                    ? 'text-white border-blue-500 font-bold'
+                                    : 'text-slate-400 hover:text-blue-400 border-transparent'
+                                    }`}
+                            >
+                                FACILITIES
+                            </Link>
+
+                            <Link
                                 href={route('products.index')}
                                 className={`transition-colors py-2 border-b-2 uppercase ${url.startsWith('/products')
                                     ? 'text-white border-blue-500 font-bold'

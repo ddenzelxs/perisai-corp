@@ -16,7 +16,17 @@ class HomeController extends Controller
 
     public function index(): Response
     {
-        $featuredProducts = $this->productRepository->getAllActive()->take(4);
+        $allActive = $this->productRepository->getAllActive();
+
+        $featuredProducts = $allActive
+            ->groupBy(function ($product) {
+                return $product->category_id ?? 'uncategorized';
+            })
+            ->flatMap(function ($products) {
+                return $products->take(3);
+            })
+            ->values();
+
         $categories = $this->categoryRepository->getAll();
 
         return Inertia::render('Home', [
@@ -28,5 +38,15 @@ class HomeController extends Controller
     public function about(): Response
     {
         return Inertia::render('About');
+    }
+
+    public function facilities(): Response
+    {
+        return Inertia::render('Facilities');
+    }
+
+    public function whatWeDo(): Response
+    {
+        return Inertia::render('WhatWeDo');
     }
 }

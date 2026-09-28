@@ -13,22 +13,17 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Night Vision & Thermal Optics',
                 'slug' => 'night-vision-thermal-optics',
-                'description' => 'Sistem optik penglihatan malam dan kamera termal resolusi tinggi untuk operasi taktis.',
+                'description' => 'Night vision optical systems and high-resolution thermal cameras for tactical operations.',
             ],
             [
-                'name' => 'Armored & Tactical Karoseri',
-                'slug' => 'armored-tactical-karoseri',
-                'description' => 'Karoseri khusus pertahanan, kendaraan lapis baja, personel carrier (APC), dan taktis militer.',
-            ],
-            [
-                'name' => 'Special Purpose Vehicles',
-                'slug' => 'special-purpose-vehicles',
-                'description' => 'Kendaraan misi khusus, command center berjalan, ambulans taktis, dan laboratorium lapangan.',
+                'name' => 'Armored & Tactical Bodywork',
+                'slug' => 'armored-tactical-bodywork',
+                'description' => 'Specialized defense bodywork, armored vehicles, armored personnel carriers (APC), and military tactical vehicles.',
             ],
             [
                 'name' => 'Defense Systems & Electronics',
                 'slug' => 'defense-systems-electronics',
-                'description' => 'Perangkat elektronik pertahanan, komunikasi terintegrasi, dan transmisi gambar nirkabel.',
+                'description' => 'Defense electronic devices, integrated communications, and wireless image transmission systems.',
             ],
         ];
 
@@ -37,3 +32,4 @@ class CategorySeeder extends Seeder
         }
     }
 }
+
